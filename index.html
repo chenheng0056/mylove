@@ -36,8 +36,6 @@
 			<a href="rotate.html">点此打开爱情魔方</a> <br />
 		</div>
 	</div>
-	<audio controls autoplay="autoplay">
-	<source src="http://www.ihaoge.net/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_7149583&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3">
 	<script type="text/javascript">
 		var offsetX = $("#loveHeart").width() / 2;
 		var offsetY = $("#loveHeart").height() / 2 - 55;
@@ -60,16 +58,37 @@
 		} else {
 			setTimeout(function () {
 				startHeartAnimation();
-			}, 5000);
+			}, 500);
 
 			timeElapse(together);
 			setInterval(function () {
 				timeElapse(together);
-			}, 500);
+			}, 300);
 
 			adjustCodePosition();
 			$("#code").typewriter();
 		}
 	</script>
+	<audio controls autoplay="autoplay">
+	<source src="http://www.ihaoge.net/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_7149583&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3">
+		<script>
+   function autoPlayAudio() {
+        wx.config({
+            // 配置信息, 即使不正确也能使用 wx.ready
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+            var globalAudio=document.getElementById("bgMusic");
+            globalAudio.play();
+        });
+    };
+// 解决ios音乐不自动播放的问题
+autoPlayAudio();
+</script> 
 </body>
 </html>
